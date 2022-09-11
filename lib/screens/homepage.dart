@@ -22,26 +22,25 @@ class _HomePageState extends State<HomePage> {
           Container(
             height: screenHeight * .1,
             width: screenWidth,
-            color: Colors.black,
-// decoration: const BoxDecoration(
-//               color: kPrimaryColor,
-//               borderRadius: BorderRadius.only(
-//                   bottomLeft: Radius.circular(30),
-//                   bottomRight: Radius.circular(30)),
-//             ),
+    
+decoration: const BoxDecoration(
+                     color: Color.fromARGB(255, 206, 45, 45),
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),
+            ),
             child: Padding(
               padding: const EdgeInsets.only(left: 10, right: 15, bottom: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    child: new Image.asset(
-                      'assets/images/plexStreamIcon.png',
-                      width: 50.0,
-                      height: 50.0,
-                      fit: BoxFit.cover,
-                    ),
+                  new Image.asset(
+                    'assets/images/movie_club-removebg-preview.png',
+                    
+                    width: 80.0,
+                    height: 80.0,
+                    fit: BoxFit.cover,
                   ),
                   TextButton(
                       onPressed: () {},
@@ -57,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             child: Container(
-              color: Color.fromARGB(255, 141, 13, 13),
+              color: Colors.white,
             ),
           )
         ],
