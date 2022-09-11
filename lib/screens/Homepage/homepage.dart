@@ -1,7 +1,8 @@
 // ignore_for_file: unnecessary_new
 
 import 'package:flutter/material.dart';
-import 'package:movie_hub/layout_constant/constant.dart';
+import 'package:movie_hub/functions/common_functions.dart';
+import 'package:tmdb_api/tmdb_api.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +12,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -22,9 +30,8 @@ class _HomePageState extends State<HomePage> {
           Container(
             height: screenHeight * .1,
             width: screenWidth,
-    
-decoration: const BoxDecoration(
-                     color: Color.fromARGB(255, 206, 45, 45),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 206, 45, 45),
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10)),
@@ -37,7 +44,6 @@ decoration: const BoxDecoration(
                 children: [
                   new Image.asset(
                     'assets/images/movie_club-removebg-preview.png',
-                    
                     width: 80.0,
                     height: 80.0,
                     fit: BoxFit.cover,
@@ -60,7 +66,6 @@ decoration: const BoxDecoration(
             ),
           )
         ],
-        
       )),
     );
   }
