@@ -1,32 +1,32 @@
+
 // ignore_for_file: prefer_const_constructors
 
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_hub/functions/common_functions.dart';
 import 'package:movie_hub/layout_constant/constant.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
-class TrendingMovieWidget extends StatelessWidget {
-  final List trendingMovieList;
-  const TrendingMovieWidget({Key? key, required this.trendingMovieList})
+class TopRatedMovieWidget extends StatelessWidget {
+  final List TopRatedMovie;
+  const TopRatedMovieWidget({Key? key, required this.TopRatedMovie})
       : super(key: key);
   
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-   
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       // ignore: prefer_const_literals_to_create_immutables
       children: [
       
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(5),
           child: text_template(
-              text: "Trending Movies", color: Colors.white, size: 20),
+              text: "Top Rated Movies", color: Colors.white, size: 20),
         ),
         Container(
        height: 220,
@@ -34,7 +34,7 @@ class TrendingMovieWidget extends StatelessWidget {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               // physics:NeverScrollableScrollPhysics(),
-              itemCount: trendingMovieList.length,
+              itemCount: TopRatedMovie.length,
               itemBuilder: (context, index) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class TrendingMovieWidget extends StatelessWidget {
                        
                       ),
                       child: Column(
-                        
+                       
                         children: [
                           Stack(
                             children: [
@@ -58,7 +58,7 @@ class TrendingMovieWidget extends StatelessWidget {
                                 child: Container(
                                     decoration: BoxDecoration(
                                     
-                                        image: DecorationImage(image:NetworkImage('http://image.tmdb.org/t/p/w500'+trendingMovieList[index]['poster_path']),
+                                        image: DecorationImage(image:NetworkImage('http://image.tmdb.org/t/p/w500'+TopRatedMovie[index]['poster_path']),
                                   fit: BoxFit.fill)),
                                     height:
                                         MediaQuery.of(context).size.height * .2,
@@ -92,15 +92,17 @@ class TrendingMovieWidget extends StatelessWidget {
                         ],
                       ),
                     ),
-                     
-                   Container(
+                      SizedBox(
+                        height: 5,
+                      ),
+                  Container(
                     width: 150,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:[
-                          Padding(
+                            Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: Text(trendingMovieList[index]['original_title'],
+                      child: Text(TopRatedMovie[index]['original_title'],
                       maxLines: 1,
   overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -115,15 +117,16 @@ class TrendingMovieWidget extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: text_template(text: "Language : ${trendingMovieList[index]['original_language']}", color: Colors.white, size: 12),
+                      child: text_template(text: "Language : ${TopRatedMovie[index]['original_language']}", color: Colors.white, size: 12),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: text_template(text: "Release Date : ${trendingMovieList[index]['release_date']}", color:Colors.white, size: 12),
+                      child: text_template(text: "Release Date : ${TopRatedMovie[index]['release_date']}", color: Colors.white, size: 12),
                     ),
                       ]
                     ),
                   )
+
                   ],
                 );
               }),

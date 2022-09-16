@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:movie_hub/functions/common_functions.dart';
+import 'package:movie_hub/screens/widget/topRatedTvShowwidget.dart';
+import 'package:movie_hub/screens/widget/topratedmoviewidget.dart';
 import 'package:movie_hub/screens/widget/trendingmoviewidget.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,12 +15,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-@override
+  @override
   void initState() {
-        loadingMovieData();
+    loadingMovieData();
     // TODO: implement initState
     super.initState();
   }
+
   //list varibles
   List trendingMovies = [];
   List getTopRatedTvShowList = [];
@@ -34,32 +36,30 @@ class _HomePageState extends State<HomePage> {
       ),
     );
     Map getPopularMovie = await tmdbWithCustomLogs.v3.movies.getPopular();
-    Map getTopRatedTvShow = await tmdbWithCustomLogs.v3.tv.getTopRated();
+    Map getTopRatedTvShow = await tmdbWithCustomLogs.v3.tv.getPouplar();
     Map getTopRatedMovie = await tmdbWithCustomLogs.v3.movies.getTopRated();
     setState(() {
       trendingMovies = getPopularMovie['results'];
       getTopRatedMovieList = getTopRatedMovie['results'];
       getTopRatedTvShowList = getTopRatedTvShow['results'];
     });
- 
   }
-
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
+    return Scaffold( backgroundColor: Colors.black,
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-                  children: [
+        child: Column(
+          children: [
             Container(
               height: screenHeight * .1,
               width: screenWidth,
               decoration: const BoxDecoration(
                 //color: Colors.transparent,
-                 color: Color.fromARGB(255, 206, 45, 45),
+                color: Color.fromARGB(255, 206, 45, 45),
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(10),
                     bottomRight: Radius.circular(10)),
@@ -89,10 +89,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-                      TrendingMovieWidget(trendingMovieList: trendingMovies,)
-                  ],
-                ),
-          )),
+            TopRatedTvShow(
+              TopRatedTvShowList: getTopRatedTvShowList,
+            ),
+            TrendingMovieWidget(
+              trendingMovieList: trendingMovies,
+            ),
+            TopRatedMovieWidget(
+              TopRatedMovie: getTopRatedMovieList,
+            ),
+          ],
+        ),
+      )),
     );
   }
 }
