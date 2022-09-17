@@ -26,10 +26,10 @@ class TopRatedMovieWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(5),
           child: text_template(
-              text: "Top Rated Movies", color: Colors.white, size: 20),
+              text: "Top Rated Movies", color: Colors.black, size: 20),
         ),
         Container(
-       height: 220,
+       height: screenHeight*.3,
           child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -106,7 +106,7 @@ class TopRatedMovieWidget extends StatelessWidget {
                       maxLines: 1,
   overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         //fontFamily: GoogleFonts.roboto,
                         fontSize: 13
                       ),
@@ -117,11 +117,11 @@ class TopRatedMovieWidget extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: text_template(text: "Language : ${TopRatedMovie[index]['original_language']}", color: Colors.white, size: 12),
+                      child: text_template(text: "Language : ${TopRatedMovie[index]['original_language']}", color: Colors.black, size: 12),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: text_template(text: "Release Date : ${TopRatedMovie[index]['release_date']}", color: Colors.white, size: 12),
+                      child: text_template(text: "Release Date : ${TopRatedMovie[index]['release_date']}", color: Colors.black, size: 12),
                     ),
                       ]
                     ),

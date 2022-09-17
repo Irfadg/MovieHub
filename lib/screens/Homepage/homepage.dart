@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold( backgroundColor: Colors.black,
+    return Scaffold( backgroundColor: Colors.white,
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(

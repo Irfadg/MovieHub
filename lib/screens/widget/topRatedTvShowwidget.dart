@@ -28,10 +28,10 @@ class TopRatedTvShow extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: text_template(
-              text: "Top Rated Tv Shows", color: Colors.white, size: 20),
+              text: "Top Rated Tv Shows", color: Colors.black, size: 20),
         ),
         Container(
-          height: 240,
+         height: screenHeight*.35,
           child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -104,7 +104,7 @@ class TopRatedTvShow extends StatelessWidget {
                                   maxLines: 1,
                                   style: TextStyle(
                                     overflow: TextOverflow.ellipsis,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       //fontFamily: GoogleFonts.roboto,
                                       fontSize: 13),
                                 )),
@@ -113,7 +113,7 @@ class TopRatedTvShow extends StatelessWidget {
                               child: text_template(
                                   text:
                                       "Language : ${TopRatedTvShowList[index]['original_language']}",
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   size: 12),
                             ),
                             Padding(
@@ -121,7 +121,7 @@ class TopRatedTvShow extends StatelessWidget {
                               child: text_template(
                                   text:
                                       "Release Date : ${TopRatedTvShowList[index]['release_date']}",
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   size: 12),
                             ),
                           ]),

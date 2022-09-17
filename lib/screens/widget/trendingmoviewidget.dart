@@ -26,10 +26,10 @@ class TrendingMovieWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10),
           child: text_template(
-              text: "Trending Movies", color: Colors.white, size: 20),
+              text: "Trending Movies", color: Colors.black, size: 20),
         ),
         Container(
-       height: 220,
+   height: screenHeight*.3,
           child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -104,7 +104,7 @@ class TrendingMovieWidget extends StatelessWidget {
                       maxLines: 1,
   overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         //fontFamily: GoogleFonts.roboto,
                         fontSize: 13
                       ),
@@ -115,11 +115,11 @@ class TrendingMovieWidget extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: text_template(text: "Language : ${trendingMovieList[index]['original_language']}", color: Colors.white, size: 12),
+                      child: text_template(text: "Language : ${trendingMovieList[index]['original_language']}", color: Colors.black, size: 12),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: text_template(text: "Release Date : ${trendingMovieList[index]['release_date']}", color:Colors.white, size: 12),
+                      child: text_template(text: "Release Date : ${trendingMovieList[index]['release_date']}", color:Colors.black, size: 12),
                     ),
                       ]
                     ),
