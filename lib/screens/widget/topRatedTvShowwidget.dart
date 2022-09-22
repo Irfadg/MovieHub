@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_hub/functions/common_functions.dart';
 import 'package:movie_hub/layout_constant/constant.dart';
+import 'package:movie_hub/screens/moviedescription/moviedescription.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 class TopRatedTvShow extends StatelessWidget {
@@ -48,12 +49,16 @@ class TopRatedTvShow extends StatelessWidget {
                         children: [
                           Stack(
                             children: [
-                              GestureDetector(
-                                // onTap: () => Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //       builder: (context) =>
-                                //     )),
+                              InkWell(
+                                
+                                     onTap: () { 
+                                print("d");
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MovieDescription()
+                                  ));
+                              },
                                 child: Container(
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
@@ -124,6 +129,7 @@ class TopRatedTvShow extends StatelessWidget {
                                   color: Colors.black,
                                   size: 12),
                             ),
+                           
                           ]),
                     )
                   ],
